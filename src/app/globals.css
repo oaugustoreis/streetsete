@@ -14,41 +14,41 @@ body {
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 0 0% 0%;
+    --primary: 218 97% 4%;
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
-    --accent: 338 77% 48%;
-    --accent-foreground: 355.7 100% 97.3%;
+    --accent: 44 80% 63%;
+    --accent-foreground: 218 97% 4%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 0 0% 0%;
+    --ring: 44 80% 63%;
     --radius: 0.5rem;
   }
   .dark {
-    --background: 240 3% 16%;
-    --foreground: 0 0% 98%;
-    --card: 240 3% 20%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 3% 16%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4% 25%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 4% 25%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 338 77% 48%;
-    --accent-foreground: 0 0% 98%;
+    --background: 218 97% 4%; /* Rich black */
+    --foreground: 100 44% 94%; /* Honeydew */
+    --card: 261 58% 10%; /* Dark purple */
+    --card-foreground: 100 44% 94%; /* Honeydew */
+    --popover: 218 97% 4%;
+    --popover-foreground: 100 44% 94%;
+    --primary: 100 44% 94%; /* Honeydew */
+    --primary-foreground: 218 97% 4%; /* Rich black */
+    --secondary: 261 58% 10%;
+    --secondary-foreground: 100 44% 94%;
+    --muted: 150 7% 70%; /* Ash gray */
+    --muted-foreground: 150 7% 85%; /* Lighter Ash gray for text */
+    --accent: 44 80% 63%; /* Naples yellow */
+    --accent-foreground: 218 97% 4%; /* Rich black */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 4% 25%;
-    --input: 240 4% 25%;
-    --ring: 338 77% 48%;
+    --border: 150 7% 70%; /* Ash gray */
+    --input: 150 7% 70%;
+    --ring: 44 80% 63%; /* Naples yellow */
   }
 }
 
