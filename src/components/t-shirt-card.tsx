@@ -35,11 +35,11 @@ export function TShirtCard({ tshirt }: TShirtCardProps) {
           />
         </div>
       </CardHeader>
-      <CardContent className="p-4 flex-grow">
+      <CardContent className="p-4 flex justify-between">
         <CardTitle className="text-xl font-headline tracking-tight">{tshirt.name}</CardTitle>
-      </CardContent>
-      <CardFooter className="p-4 pt-0 flex justify-between items-center">
         <p className="text-2xl font-bold text-primary">${tshirt.price.toFixed(2)}</p>
+      </CardContent>
+      <CardFooter className="p-4 pt-0 flex  justify-between items-center">
         <Button variant="outline" className="bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent-foreground border-accent-foreground/20" onClick={handleBuyClick}>
           <WhatsAppIcon className="h-5 w-5 mr-2" />
           Buy Now
