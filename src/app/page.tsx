@@ -86,20 +86,22 @@ export default function Home() {
                 <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/20 hover:bg-black/40 border-none" />
             </Carousel>
         </section>
-        <Tabs defaultValue="All" onValueChange={(value) => setCategory(value as TShirtCategory | "All")} className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-4 mb-8">
-            {categories.map((cat) => (
-                <TabsTrigger key={cat} value={cat}>{cat}</TabsTrigger>
-            ))}
-          </TabsList>
-          <TabsContent value={category}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {filteredTshirts.map((tshirt) => (
-                <TShirtCard key={tshirt.id} tshirt={tshirt} />
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
+        <section className="bg-[#E1EFE6] dark:bg-card rounded-lg p-4 md:p-8">
+            <Tabs defaultValue="All" onValueChange={(value) => setCategory(value as TShirtCategory | "All")} className="w-full">
+            <TabsList className="grid w-full max-w-md mx-auto grid-cols-4 mb-8 bg-background/50">
+                {categories.map((cat) => (
+                    <TabsTrigger key={cat} value={cat}>{cat}</TabsTrigger>
+                ))}
+            </TabsList>
+            <TabsContent value={category}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                {filteredTshirts.map((tshirt) => (
+                    <TShirtCard key={tshirt.id} tshirt={tshirt} />
+                ))}
+                </div>
+            </TabsContent>
+            </Tabs>>
+        </section>
       </main>
 
       <section className="bg-muted/50 py-16">
