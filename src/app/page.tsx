@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import logo from "@/images/logo.png";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TShirtCategory } from "@/lib/data";
 import { Facebook, Instagram, Twitter } from "lucide-react";
@@ -38,13 +39,21 @@ export default function Home() {
         <div className="flex flex-col min-h-screen bg-foreground">
             <header className="py-8 text-center bg-background">
                 <div className="flex items-center justify-center gap-4">
-                    <h1 className="text-5xl font-bold font-headline tracking-tighter">
-                        Street Sete
-                    </h1>
+                    <Image
+                        src={logo}
+                        alt="Street Sete Logo"
+                        width={100}
+                        height={100}
+                    />
+                    <div className="flex flex-col text-left">
+                        <h1 className="text-5xl font-bold font-headline tracking-tighter">
+                            Street Sete
+                        </h1>
+                        <p className="text-muted-foreground text-lg">
+                            Exclusive designs for the modern rebel.
+                        </p>
+                    </div>
                 </div>
-                <p className="text-muted-foreground text-lg">
-                    Exclusive designs for the modern rebel.
-                </p>
             </header>
             <main className="flex-grow container mx-auto ">
                 <section className="bg-foreground rounded-lg p-2">
