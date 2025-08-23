@@ -15,6 +15,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from '@/components/ui/button';
+import BackToTopButton from '@/components/scroll-top';
 
 export default function Home() {
   const [category, setCategory] = useState<TShirtCategory | "All">("All");
@@ -141,6 +142,8 @@ Nascemos da cultura, do cinema, da música e, acima de tudo, das referências qu
           <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Street Sete. Todos os direitos reservados.</p>
         </div>
       </footer>
+      <BackToTopButton />
+
     </div>
   );
 }
