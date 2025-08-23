@@ -29,7 +29,6 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-foreground">
       <header className="py-8 text-center bg-background">
         <div className="flex items-center justify-center gap-4">
-          <Shirt className="h-10 w-10 text-primary" />
           <h1 className="text-5xl font-bold font-headline tracking-tighter">
             Street Sete
           </h1>
@@ -57,7 +56,7 @@ export default function Home() {
           </Tabs>
         </section>
       </main>
-      <section className="">
+      {/* <section className="">
         <Carousel
           className="w-full"
           opts={{
@@ -100,13 +99,12 @@ export default function Home() {
           <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/20 hover:bg-black/40 border-none" />
           <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/20 hover:bg-black/40 border-none" />
         </Carousel>
-      </section>
+      </section> */}
       <section className="bg-ring py-16">
         <div className="container mx-auto px-4 text-center max-w-3xl">
-          <h2 className=" text-background text-4xl font-bold font-headline mb-4 tracking-tight">Sobre a Streetwear Tees</h2>
+          <h2 className=" text-background text-4xl font-bold font-headline mb-4 tracking-tight">Sobre a Street Sete</h2>
           <p className="text-background text-lg">
-            Nascemos da cultura das ruas, para as ruas. A Streetwear Tees é mais do que uma marca de camisetas; é um manifesto de estilo, atitude e individualidade. Nossas estampas são criadas por artistas independentes que respiram a arte urbana, trazendo designs exclusivos que conversam com o agora. Vista-se de propósito.
-          </p>
+Nascemos da cultura, do cinema, da música e, acima de tudo, das referências que moldam nossa identidade. A Street Sete não é apenas uma marca de camisetas — é um manifesto de estilo, atitude e autenticidade. Nossas estampas modernas traduzem personalidade e vestem quem escolhe se expressar com coragem. Vista Street Sete.          </p>
         </div>
       </section>
 
@@ -135,12 +133,12 @@ export default function Home() {
           </div>
           <div>
             <h3 className="font-bold text-lg mb-3">Contato</h3>
-            <p className="text-sm text-muted-foreground">contato@streetweartees.com</p>
-            <p className="text-sm text-muted-foreground">(11) 99999-9999</p>
+            <p className="text-sm text-muted-foreground">contato@streetsete.com</p>
+            <p className="text-sm text-muted-foreground">(92) 99534-9354</p>
           </div>
         </div>
         <div className="text-center py-6 mt-8">
-          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Streetwear Tees. Todos os direitos reservados.</p>
+          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Street Sete. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>

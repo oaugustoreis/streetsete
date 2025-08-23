@@ -39,7 +39,7 @@ export function TShirtCard({ tshirt }: TShirtCardProps) {
               <CarouselItem>
                 <div className="relative  overflow-hidden group">
                   <Image
-                    src={tshirt.image}
+                    src={tshirt.imageBack}
                     alt={tshirt.name}
                     width={600}
                     height={600}
@@ -51,7 +51,7 @@ export function TShirtCard({ tshirt }: TShirtCardProps) {
               <CarouselItem>
                 <div className="relative  overflow-hidden group">
                   <Image
-                    src={tshirt.imageBack}
+                    src={tshirt.image}
                     alt={tshirt.name}
                     width={600}
                     height={600}
@@ -65,10 +65,6 @@ export function TShirtCard({ tshirt }: TShirtCardProps) {
 
         </div>
       </CardHeader>
-      {/* <CardContent className="p-4 flex justify-between">
-        <CardTitle className="text-xl font-headline tracking-tight">{tshirt.name}</CardTitle>
-        <p className="text-2xl font-bold text-card">R${tshirt.price.toFixed(2)}</p>
-      </CardContent> */}
        <CardContent className="p-4 flex-grow">
         <div className="flex justify-between items-start gap-2">
           <CardTitle className="text-lg font-headline">{tshirt.name}</CardTitle>
@@ -81,7 +77,9 @@ export function TShirtCard({ tshirt }: TShirtCardProps) {
         </CardDescription>
       </CardContent>
       
-      <CardFooter className="p-4 pt-0 flex  justify-end items-center">
+      <CardFooter className="p-4 pt-0 flex  justify-between items-center">
+                  <CardTitle className="text-lg font-headline">R$ {tshirt.price.toFixed(2)}</CardTitle>
+
         <Button variant="outline" className="bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent-foreground " onClick={handleBuyClick}>
           <WhatsAppIcon className="h-5 w-5 mr-2" />
           Compre Agora
