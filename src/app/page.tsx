@@ -42,7 +42,7 @@ export default function Home() {
 
         <section className="bg-foreground rounded-lg p-2">
           <Tabs defaultValue="All" onValueChange={(value) => setCategory(value as TShirtCategory | "All")} className="w-full">
-            <TabsList className="grid  text-background max-w-md mx-auto grid-cols-4 bg-foreground/50 border">
+            <TabsList className="grid  text-background max-w-md border mx-auto grid-cols-4 bg-foreground/50">
               {categories.map((cat) => (
                 <TabsTrigger key={cat} value={cat}>{cat}</TabsTrigger>
               ))}

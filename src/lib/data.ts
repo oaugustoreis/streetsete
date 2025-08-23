@@ -1,10 +1,14 @@
 export type TShirtCategory = 'Graphic' | 'Minimalist' | 'Vintage';
+import catzillaFrente from "@/images/tshirts/catzila_frente.jpg";
+import catzillaBack from "@/images/tshirts/catzila_costa.jpg";
+import type { StaticImageData } from "next/image";
 
 export type TShirt = {
   id: number;
   name: string;
   price: number;
-  image: string;
+  image: string | StaticImageData;
+  imageBack: string | StaticImageData;
   category: TShirtCategory;
   aiHint: string;
 };
@@ -12,9 +16,10 @@ export type TShirt = {
 export const tshirts: TShirt[] = [
   {
     id: 1,
-    name: 'Glitch Skull',
-    price: 35.00,
-    image: 'https://placehold.co/600x600.png',
+    name: 'Catzilla',
+    price: 69.90,
+    image: catzillaFrente,
+    imageBack: catzillaBack,
     category: 'Graphic',
     aiHint: 'skull glitch',
   },
@@ -22,7 +27,8 @@ export const tshirts: TShirt[] = [
     id: 2,
     name: 'Astro Funk',
     price: 40.00,
-    image: 'https://placehold.co/600x600.png',
+    image: catzillaFrente,
+    imageBack: catzillaBack,
     category: 'Graphic',
     aiHint: 'astronaut dj',
   },
@@ -30,7 +36,8 @@ export const tshirts: TShirt[] = [
     id: 3,
     name: 'Simple Lines',
     price: 28.00,
-    image: 'https://placehold.co/600x600.png',
+    image: catzillaFrente,
+    imageBack: catzillaBack,
     category: 'Minimalist',
     aiHint: 'minimalist lineart',
   },
@@ -38,7 +45,8 @@ export const tshirts: TShirt[] = [
     id: 4,
     name: 'Retro Wave',
     price: 32.00,
-    image: 'https://placehold.co/600x600.png',
+    image: catzillaFrente,
+    imageBack: catzillaBack,
     category: 'Vintage',
     aiHint: 'retro sunset',
   },
@@ -46,7 +54,8 @@ export const tshirts: TShirt[] = [
     id: 5,
     name: 'Urban Explorer',
     price: 35.00,
-    image: 'https://placehold.co/600x600.png',
+    image: catzillaFrente,
+    imageBack: catzillaBack,
     category: 'Graphic',
     aiHint: 'city graffiti',
   },
@@ -54,7 +63,8 @@ export const tshirts: TShirt[] = [
     id: 6,
     name: 'Dot Matrix',
     price: 28.00,
-    image: 'https://placehold.co/600x600.png',
+    image: catzillaFrente,
+    imageBack: catzillaBack,
     category: 'Minimalist',
     aiHint: 'dot pattern',
   },
@@ -62,7 +72,8 @@ export const tshirts: TShirt[] = [
     id: 7,
     name: '90s Throwback',
     price: 32.00,
-    image: 'https://placehold.co/600x600.png',
+    image: catzillaFrente,
+    imageBack: catzillaBack,
     category: 'Vintage',
     aiHint: '90s pattern',
   },
@@ -70,7 +81,8 @@ export const tshirts: TShirt[] = [
     id: 8,
     name: 'Cybernetic',
     price: 40.00,
-    image: 'https://placehold.co/600x600.png',
+    image: catzillaFrente,
+    imageBack: catzillaBack,
     category: 'Graphic',
     aiHint: 'cyberpunk circuit',
   },
