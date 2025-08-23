@@ -2,10 +2,9 @@
 
 import * as React from "react";
 import { useEffect, useState } from "react";
-import Image from "next/image";import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import { TShirtCards } from "@/components/t-shirt-cards";
-import { getShirts, Shirt, TShirtCategory } from "@/lib/datas";
+import Image from "next/image";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TShirtCategory } from "@/lib/data";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import {
     Carousel,
@@ -17,25 +16,17 @@ import {
 import { Button } from "@/components/ui/button";
 import BackToTopButton from "@/components/scroll-top";
 import { Skeleton } from "@/components/ui/skeleton";
+import { tshirts } from "@/lib/data";
+import { TShirtCard } from "@/components/t-shirt-card";
 
 export default function Home() {
     const [category, setCategory] = useState<TShirtCategory | "All">("All");
     const [loading, setLoading] = useState(false);
-    const [shirts, setShirts] = useState<Shirt[]>([]);
 
-    const filteredShirts = shirts.filter(
+    const filteredShirts = tshirts.filter(
         (shirt) => category === "All" || shirt.category === category
     );
-    useEffect(() => {
-        const fetchShirts = async () => {
-            setLoading(true);
-            const shirtsFromDb = await getShirts();
-            setShirts(shirtsFromDb);
-            setLoading(false);
-            console.log(shirtsFromDb);
-        };
-        fetchShirts();
-    }, []);
+
     const categories: (TShirtCategory | "All")[] = [
         "All",
         "Graphic",
@@ -90,11 +81,11 @@ export default function Home() {
                                             <Skeleton className="h-10 w-full" />
                                         </div>
                                     ))
-                                ) : shirts.length > 0 ? (
+                                ) : tshirts.length > 0 ? (
                                     filteredShirts.map((shirt) => (
-                                        <TShirtCards
+                                        <TShirtCard
                                             key={shirt.id}
-                                            shirt={shirt}
+                                            tshirt={shirt}
                                         />
                                     ))
                                 ) : (

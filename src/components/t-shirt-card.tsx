@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import type { TShirt } from "@/lib/data";
-import type { Shirt } from "@/lib/datas";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
@@ -10,8 +9,7 @@ import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
 import { Badge } from './ui/badge';
 
 interface TShirtCardProps {
-  tshirt?: TShirt;
-  shirt?: Shirt;
+  tshirt: TShirt;
 }
 
 export function TShirtCard({ tshirt }: TShirtCardProps) {
