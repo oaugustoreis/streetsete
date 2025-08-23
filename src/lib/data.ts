@@ -91,3 +91,4 @@ export const tshirts: TShirt[] = [
     description: 'Um pintura que traz a beleza atemporal de um coelhinho em uma obra que parece familiar a todos nós.',
   },
 ];
+

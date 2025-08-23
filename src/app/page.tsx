@@ -1,63 +1,113 @@
 "use client";
 
-import * as React from 'react';
-import { useState } from 'react';
-import Image from 'next/image';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TShirtCard } from "@/components/t-shirt-card";
-import { tshirts, TShirtCategory } from "@/lib/data";
-import { Shirt, Facebook, Instagram, Twitter } from 'lucide-react';
+import * as React from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import { TShirtCards } from "@/components/t-shirt-cards";
+import { getShirts, Shirt, TShirtCategory } from "@/lib/datas";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from '@/components/ui/button';
-import BackToTopButton from '@/components/scroll-top';
+import { Button } from "@/components/ui/button";
+import BackToTopButton from "@/components/scroll-top";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
-  const [category, setCategory] = useState<TShirtCategory | "All">("All");
+    const [category, setCategory] = useState<TShirtCategory | "All">("All");
+    const [loading, setLoading] = useState(false);
+    const [shirts, setShirts] = useState<Shirt[]>([]);
 
-  const filteredTshirts = tshirts.filter(
-    (tshirt) => category === "All" || tshirt.category === category
-  );
+    const filteredShirts = shirts.filter(
+        (shirt) => category === "All" || shirt.category === category
+    );
+    useEffect(() => {
+        const fetchShirts = async () => {
+            setLoading(true);
+            const shirtsFromDb = await getShirts();
+            setShirts(shirtsFromDb);
+            setLoading(false);
+            console.log(shirtsFromDb);
+        };
+        fetchShirts();
+    }, []);
+    const categories: (TShirtCategory | "All")[] = [
+        "All",
+        "Graphic",
+        "Minimalist",
+        "Vintage",
+    ];
 
-  const categories: (TShirtCategory | "All")[] = ["All", "Graphic", "Minimalist", "Vintage"];
-
-  return (
-    <div className="flex flex-col min-h-screen bg-foreground">
-      <header className="py-8 text-center bg-background">
-        <div className="flex items-center justify-center gap-4">
-          <h1 className="text-5xl font-bold font-headline tracking-tighter">
-            Street Sete
-          </h1>
-        </div>
-        <p className="text-muted-foreground text-lg">
-          Exclusive designs for the modern rebel.
-        </p>
-      </header>
-      <main className="flex-grow container mx-auto ">
-
-        <section className="bg-foreground rounded-lg p-2">
-          <Tabs defaultValue="All" onValueChange={(value) => setCategory(value as TShirtCategory | "All")} className="w-full">
-            <TabsList className="grid  text-background max-w-md border mx-auto grid-cols-4 bg-foreground/50">
-              {categories.map((cat) => (
-                <TabsTrigger key={cat} value={cat}>{cat}</TabsTrigger>
-              ))}
-            </TabsList>
-            <TabsContent value={category}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    return (
+        <div className="flex flex-col min-h-screen bg-foreground">
+            <header className="py-8 text-center bg-background">
+                <div className="flex items-center justify-center gap-4">
+                    <h1 className="text-5xl font-bold font-headline tracking-tighter">
+                        Street Sete
+                    </h1>
+                </div>
+                <p className="text-muted-foreground text-lg">
+                    Exclusive designs for the modern rebel.
+                </p>
+            </header>
+            <main className="flex-grow container mx-auto ">
+                <section className="bg-foreground rounded-lg p-2">
+                    <Tabs
+                        defaultValue="All"
+                        onValueChange={(value) =>
+                            setCategory(value as TShirtCategory | "All")
+                        }
+                        className="w-full"
+                    >
+                        <TabsList className="grid  text-background max-w-md border mx-auto grid-cols-4 bg-foreground/50">
+                            {categories.map((cat) => (
+                                <TabsTrigger key={cat} value={cat}>
+                                    {cat}
+                                </TabsTrigger>
+                            ))}
+                        </TabsList>
+                        <TabsContent value={category}>
+                            {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {filteredTshirts.map((tshirt) => (
                   <TShirtCard key={tshirt.id} tshirt={tshirt} />
                 ))}
-              </div>
-            </TabsContent>
-          </Tabs>
-        </section>
-      </main>
-      {/* <section className="">
+              </div> */}
+                            <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                                {loading ? (
+                                    Array.from({ length: 8 }).map((_, i) => (
+                                        <div
+                                            key={i}
+                                            className="flex flex-col gap-4"
+                                        >
+                                            <Skeleton className="h-[300px] w-full" />
+                                            <Skeleton className="h-6 w-3/4" />
+                                            <Skeleton className="h-4 w-1/2" />
+                                            <Skeleton className="h-10 w-full" />
+                                        </div>
+                                    ))
+                                ) : shirts.length > 0 ? (
+                                    filteredShirts.map((shirt) => (
+                                        <TShirtCards
+                                            key={shirt.id}
+                                            shirt={shirt}
+                                        />
+                                    ))
+                                ) : (
+                                    <div className="col-span-full text-center py-16 text-muted-foreground">
+                                        <p>No shirts found in this category.</p>
+                                    </div>
+                                )}
+                            </div>
+                        </TabsContent>
+                    </Tabs>
+                </section>
+            </main>
+            {/* <section className="">
         <Carousel
           className="w-full"
           opts={{
@@ -101,49 +151,111 @@ export default function Home() {
           <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/20 hover:bg-black/40 border-none" />
         </Carousel>
       </section> */}
-      <section className="bg-ring py-16">
-        <div className="container mx-auto px-4 text-center max-w-3xl">
-          <h2 className=" text-background text-4xl font-bold font-headline mb-4 tracking-tight">Sobre a Street Sete</h2>
-          <p className="text-background text-lg">
-Nascemos da cultura, do cinema, da música e, acima de tudo, das referências que moldam nossa identidade. A Street Sete não é apenas uma marca de camisetas — é um manifesto de estilo, atitude e autenticidade. Nossas estampas modernas traduzem personalidade e vestem quem escolhe se expressar com coragem. Vista Street Sete.          </p>
-        </div>
-      </section>
 
-      <footer className="bg-background  pt-12">
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="font-bold text-lg mb-3 font-headline">Streetwear Tees</h3>
-            <p className="text-muted-foreground text-sm">Vista sua atitude.</p>
-          </div>
-          <div>
-            <h3 className="font-bold text-lg mb-3">Navegue</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Início</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Coleções</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Sobre</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Contato</a></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-bold text-lg mb-3">Siga-nos</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Facebook size={20} /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={20} /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter size={20} /></a>
-            </div>
-          </div>
-          <div>
-            <h3 className="font-bold text-lg mb-3">Contato</h3>
-            <p className="text-sm text-muted-foreground">contato@streetsete.com</p>
-            <p className="text-sm text-muted-foreground">(92) 99534-9354</p>
-          </div>
-        </div>
-        <div className="text-center py-6 mt-8">
-          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Street Sete. Todos os direitos reservados.</p>
-        </div>
-      </footer>
-      <BackToTopButton />
+            <section className="bg-ring py-16">
+                <div className="container mx-auto px-4 text-center max-w-3xl">
+                    <h2 className=" text-background text-4xl font-bold font-headline mb-4 tracking-tight">
+                        Sobre a Street Sete
+                    </h2>
+                    <p className="text-background text-lg">
+                        Nascemos da cultura, do cinema, da música e, acima de
+                        tudo, das referências que moldam nossa identidade. A
+                        Street Sete não é apenas uma marca de camisetas — é um
+                        manifesto de estilo, atitude e autenticidade. Nossas
+                        estampas modernas traduzem personalidade e vestem quem
+                        escolhe se expressar com coragem. Vista Street Sete.{" "}
+                    </p>
+                </div>
+            </section>
 
-    </div>
-  );
+            <footer className="bg-background  pt-12">
+                <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 className="font-bold text-lg mb-3 font-headline">
+                            Streetwear Tees
+                        </h3>
+                        <p className="text-muted-foreground text-sm">
+                            Vista sua atitude.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 className="font-bold text-lg mb-3">Navegue</h3>
+                        <ul className="space-y-2 text-sm text-muted-foreground">
+                            <li>
+                                <a
+                                    href="#"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    Início
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    Coleções
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    Sobre
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="#"
+                                    className="hover:text-primary transition-colors"
+                                >
+                                    Contato
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 className="font-bold text-lg mb-3">Siga-nos</h3>
+                        <div className="flex space-x-4">
+                            <a
+                                href="#"
+                                className="text-muted-foreground hover:text-primary transition-colors"
+                            >
+                                <Facebook size={20} />
+                            </a>
+                            <a
+                                href="#"
+                                className="text-muted-foreground hover:text-primary transition-colors"
+                            >
+                                <Instagram size={20} />
+                            </a>
+                            <a
+                                href="#"
+                                className="text-muted-foreground hover:text-primary transition-colors"
+                            >
+                                <Twitter size={20} />
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 className="font-bold text-lg mb-3">Contato</h3>
+                        <p className="text-sm text-muted-foreground">
+                            contato@streetsete.com
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                            (92) 99534-9354
+                        </p>
+                    </div>
+                </div>
+                <div className="text-center py-6 mt-8">
+                    <p className="text-sm text-muted-foreground">
+                        &copy; {new Date().getFullYear()} Street Sete. Todos os
+                        direitos reservados.
+                    </p>
+                </div>
+            </footer>
+            <BackToTopButton />
+        </div>
+    );
 }
