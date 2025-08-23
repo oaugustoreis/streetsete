@@ -1,6 +1,22 @@
 export type TShirtCategory = 'Graphic' | 'Minimalist' | 'Vintage';
-import catzillaFrente from "@/images/tshirts/catzila_frente.jpg";
-import catzillaBack from "@/images/tshirts/catzila_costa.jpg";
+import catzillaFrente from "@/images/tshirts/catzila_frente.png";
+import catzillaBack from "@/images/tshirts/catzila_costa.png";
+
+import catzillaDoisFrente from "@/images/tshirts/catzila_dois_frente.png";
+import catzillaDoisBack from "@/images/tshirts/catzila_dois_costa.png";
+
+import monaFrente from "@/images/tshirts/mona_frente.png";
+import monaBack from "@/images/tshirts/mona_costa.png";
+
+import punkRockFrente from "@/images/tshirts/punk_rock_frente.png";
+import punkRockBack from "@/images/tshirts/punk_rock_costa.png";
+
+import twoCatFrente from "@/images/tshirts/twocat_frente.png";
+import twoCatBack from "@/images/tshirts/twocat_costa.png";
+
+import venusFrente from "@/images/tshirts/venus_frente.png";
+import venusBack from "@/images/tshirts/venus_costa.png";
+
 import type { StaticImageData } from "next/image";
 
 export type TShirt = {
@@ -11,8 +27,8 @@ export type TShirt = {
   imageBack: string | StaticImageData;
   category: TShirtCategory;
   aiHint: string;
+  description: string;
 };
-
 export const tshirts: TShirt[] = [
   {
     id: 1,
@@ -20,70 +36,58 @@ export const tshirts: TShirt[] = [
     price: 69.90,
     image: catzillaFrente,
     imageBack: catzillaBack,
-    category: 'Graphic',
+    category: 'Vintage',
     aiHint: 'skull glitch',
+    description: 'Um gato preto gigante ataca uma cidade asiática, causando caos e destruição. E o que nos resta fazer é uma camisa sobre isso.',
   },
   {
     id: 2,
-    name: 'Astro Funk',
+    name: 'Catzila 2: O Retorno',
     price: 40.00,
-    image: catzillaFrente,
-    imageBack: catzillaBack,
-    category: 'Graphic',
+    image: catzillaDoisFrente,
+    imageBack: catzillaDoisBack,
+    category: 'Vintage',
     aiHint: 'astronaut dj',
+    description: 'Outro gato gigante ataca outra cidade asiática, também, causando caos e destruição. Também fizemos uma camisa sobre isso.',
   },
   {
     id: 3,
-    name: 'Simple Lines',
-    price: 28.00,
-    image: catzillaFrente,
-    imageBack: catzillaBack,
-    category: 'Minimalist',
-    aiHint: 'minimalist lineart',
+    name: 'A Mona é Pop',
+    price: 45.00,
+    image: monaFrente,
+    imageBack: monaBack,
+    category: 'Graphic',
+    aiHint: 'mona lisa remix',
+    description: '"Uma palavra na tua camiseta, o planeta na tua cama"',
   },
   {
     id: 4,
-    name: 'Retro Wave',
-    price: 32.00,
-    image: catzillaFrente,
-    imageBack: catzillaBack,
-    category: 'Vintage',
-    aiHint: 'retro sunset',
+    name: 'Punk Rock',
+    price: 38.00,
+    image: punkRockFrente,
+    imageBack: punkRockBack,
+    category: 'Minimalist',
+    aiHint: 'punk rock skull',
+    description: 'Well, I\'m a punk rocker, yes, I am',
   },
   {
     id: 5,
-    name: 'Urban Explorer',
+    name: '2Cat',
     price: 35.00,
-    image: catzillaFrente,
-    imageBack: catzillaBack,
+    image: twoCatFrente,
+    imageBack: twoCatBack,
     category: 'Graphic',
-    aiHint: 'city graffiti',
+    aiHint: 'two cats illustration',
+    description: 'West side mother f**ers.',
   },
   {
     id: 6,
-    name: 'Dot Matrix',
-    price: 28.00,
-    image: catzillaFrente,
-    imageBack: catzillaBack,
-    category: 'Minimalist',
-    aiHint: 'dot pattern',
-  },
-  {
-    id: 7,
-    name: '90s Throwback',
-    price: 32.00,
-    image: catzillaFrente,
-    imageBack: catzillaBack,
+    name: 'Venus Classic',
+    price: 42.00,
+    image: venusFrente,
+    imageBack: venusBack,
     category: 'Vintage',
-    aiHint: '90s pattern',
-  },
-  {
-    id: 8,
-    name: 'Cybernetic',
-    price: 40.00,
-    image: catzillaFrente,
-    imageBack: catzillaBack,
-    category: 'Graphic',
-    aiHint: 'cyberpunk circuit',
+    aiHint: 'venus retro art',
+    description: 'Um pintura que traz a beleza atemporal de um coelhinho em uma obra que parece familiar a todos nós.',
   },
 ];

@@ -2,10 +2,11 @@
 
 import Image from 'next/image';
 import type { TShirt } from "@/lib/data";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
+import { Badge } from './ui/badge';
 
 interface TShirtCardProps {
   tshirt: TShirt;
@@ -64,14 +65,26 @@ export function TShirtCard({ tshirt }: TShirtCardProps) {
 
         </div>
       </CardHeader>
-      <CardContent className="p-4 flex justify-between">
+      {/* <CardContent className="p-4 flex justify-between">
         <CardTitle className="text-xl font-headline tracking-tight">{tshirt.name}</CardTitle>
         <p className="text-2xl font-bold text-card">R${tshirt.price.toFixed(2)}</p>
+      </CardContent> */}
+       <CardContent className="p-4 flex-grow">
+        <div className="flex justify-between items-start gap-2">
+          <CardTitle className="text-lg font-headline">{tshirt.name}</CardTitle>
+          <Badge variant="outline" className="flex-shrink-0 text-background">
+            {tshirt.category}
+          </Badge>
+        </div>
+        <CardDescription className="mt-2 text-sm">
+           {tshirt.description}
+        </CardDescription>
       </CardContent>
+      
       <CardFooter className="p-4 pt-0 flex  justify-end items-center">
         <Button variant="outline" className="bg-accent text-accent-foreground hover:bg-accent/90 hover:text-accent-foreground " onClick={handleBuyClick}>
           <WhatsAppIcon className="h-5 w-5 mr-2" />
-          Buy Now
+          Compre Agora
         </Button>
       </CardFooter>
     </Card>
