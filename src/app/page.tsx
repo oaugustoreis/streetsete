@@ -122,7 +122,7 @@ export default function Home() {
                 <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
                         <h3 className="font-bold text-lg mb-3 font-headline">
-                            Streetwear Tees
+                            Street Sete Camisetas
                         </h3>
                         <p className="text-muted-foreground text-sm">
                             Vista sua atitude.
