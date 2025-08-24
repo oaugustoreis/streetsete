@@ -4,6 +4,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "@/images/logo.png";
+import logo_mobile from "@/images/logo_tres.png";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TShirtCategory } from "@/lib/data";
 import { Facebook, Instagram, Twitter } from "lucide-react";
@@ -19,8 +20,10 @@ import BackToTopButton from "@/components/scroll-top";
 import { Skeleton } from "@/components/ui/skeleton";
 import { tshirts } from "@/lib/data";
 import { TShirtCard } from "@/components/t-shirt-card";
+import { useIsMobile } from "@/hooks/use-mobile"; // ajuste o caminho conforme a pasta onde seu hook está
 
 export default function Home() {
+    const isMobile = useIsMobile();
     const [category, setCategory] = useState<TShirtCategory | "All">("All");
     const [loading, setLoading] = useState(false);
 
@@ -39,15 +42,39 @@ export default function Home() {
         <div className="flex flex-col min-h-screen bg-foreground">
             <header className="py-2 text-center ">
                 <div className="flex items-center  flex-col justify-center gap-2">
-                    <Image
-                        src={logo}
-                        alt="Street Sete Logo"
-                        width={80}
-                        className="invert"
-                    />
-                    <h1 className="text-2xl text-background font-bold">
-                        Street Sete
-                    </h1>
+                    {isMobile ? (
+                        <>
+                            <Image
+                                src={logo_mobile}
+                                alt="Street Sete Logo"
+                                width={280}
+                            />
+                            <p className="font-semibold text-background">
+                                Camisas & Camisetas
+                            </p>
+                        </>
+                    ) : (
+                        <>
+                            <Image
+                                src={logo}
+                                alt="Street Sete Logo"
+                                width={80}
+                                className="invert"
+                            />
+                            <div>
+                                <h1 className="text-2xl text-background font-bold">
+                                    Street Sete
+                                </h1>
+                                <p className="font-semibold text-background">
+                                    Camisas & Camisetas
+                                </p>
+                                <p className="text-background text-sm">
+                                    Na rua das referências, esquina com a da
+                                    criatividade.
+                                </p>
+                            </div>
+                        </>
+                    )}
                 </div>
             </header>
             <main className="flex-grow container mx-auto ">
@@ -59,11 +86,6 @@ export default function Home() {
                         }
                         className="w-full text-center"
                     >
-                        <p className="text-background text-sm">
-                            Na rua das referências, esquina com a da
-                            criatividade.
-                        </p>
-                        s
                         <TabsList className="grid  text-background max-w-md border mx-auto grid-cols-4 bg-foreground/50">
                             {categories.map((cat) => (
                                 <TabsTrigger key={cat} value={cat}>
