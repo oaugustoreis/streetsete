@@ -203,6 +203,9 @@ export default function Home() {
                         &copy; {new Date().getFullYear()} Street Sete. Todos os
                         direitos reservados.
                     </p>
+                    <p className="text-sm text-muted-foreground">
+                        Desenvolvido por Studio IO: Design & Desenvolvimento
+                    </p>
                 </div>
             </footer>
             <BackToTopButton />

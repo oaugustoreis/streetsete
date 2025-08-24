@@ -42,7 +42,7 @@ export function TShirtCard({ tshirt }: TShirtCardProps) {
     };
 
     return (
-        <Card className="flex flex-col border border-gray-300 overflow-hidden s transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 group">
+        <Card className="flex flex-col border text-left border-gray-300 overflow-hidden s transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20 group">
             <CardHeader className="p-0 ">
                 <div className=" overflow-hidden">
                     <Carousel
