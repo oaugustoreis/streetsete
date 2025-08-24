@@ -33,9 +33,9 @@ export function TShirtCard({ tshirt }: TShirtCardProps) {
     const handleBuyClick = () => {
         const phoneNumber = "5592995349354";
         const message = encodeURIComponent(
-            `Hello! I'm interested in the "${
+            `Oi! Estou interessado nessa camiseta "${
                 tshirt.name
-            }" t-shirt for $${tshirt.price.toFixed(2)}.`
+            }".`
         );
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
         window.open(whatsappUrl, "_blank");
