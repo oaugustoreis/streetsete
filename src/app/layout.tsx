@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Streetwear Tees',
-  description: 'Modern streetwear t-shirt store.',
+  title: 'Street Sete Camisetas',
+  description: 'Loja de camisetas streetwear.',
 };
 
 export default function RootLayout({

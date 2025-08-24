@@ -1,94 +1,247 @@
-export type TShirtCategory = 'Graphic' | 'Minimalist' | 'Vintage';
-import catzillaFrente from "@/images/tshirts/catzila_frente.png";
-import catzillaBack from "@/images/tshirts/catzila_costa.png";
-
-import catzillaDoisFrente from "@/images/tshirts/catzila_dois_frente.png";
-import catzillaDoisBack from "@/images/tshirts/catzila_dois_costa.png";
-
-import monaFrente from "@/images/tshirts/mona_frente.png";
-import monaBack from "@/images/tshirts/mona_costa.png";
-
-import punkRockFrente from "@/images/tshirts/punk_rock_frente.png";
-import punkRockBack from "@/images/tshirts/punk_rock_costa.png";
-
-import twoCatFrente from "@/images/tshirts/twocat_frente.png";
-import twoCatBack from "@/images/tshirts/twocat_costa.png";
-
-import venusFrente from "@/images/tshirts/venus_frente.png";
-import venusBack from "@/images/tshirts/venus_costa.png";
-
+export type TShirtCategory = "Graphic" | "Minimalist" | "Vintage" | "Retro";
+import { tshirtImages } from "@/lib/images-import/images-imports";
 import type { StaticImageData } from "next/image";
 
 export type TShirt = {
-  id: number;
-  name: string;
-  price: number;
-  image: string | StaticImageData;
-  imageBack: string | StaticImageData;
-  category: TShirtCategory;
-  aiHint: string;
-  description: string;
+    id: number;
+    name: string;
+    price: number;
+    image: string | StaticImageData;
+    imageBack: string | StaticImageData;
+    category: TShirtCategory;
+    aiHint: string;
+    type: "Oversized" | "Regular" | "Slim";
+    description: string;
 };
 export const tshirts: TShirt[] = [
-  {
-    id: 1,
-    name: 'Catzilla',
-    price: 69.90,
-    image: catzillaFrente,
-    imageBack: catzillaBack,
-    category: 'Vintage',
-    aiHint: 'skull glitch',
-    description: 'Um gato preto gigante ataca uma cidade asiática, causando caos e destruição. E o que nos resta fazer é uma camisa sobre isso.',
-  },
-  {
-    id: 2,
-    name: 'Catzila 2: O Retorno',
-    price: 40.00,
-    image: catzillaDoisFrente,
-    imageBack: catzillaDoisBack,
-    category: 'Vintage',
-    aiHint: 'astronaut dj',
-    description: 'Outro gato gigante ataca outra cidade asiática, também, causando caos e destruição. Também fizemos uma camisa sobre isso.',
-  },
-  {
-    id: 3,
-    name: 'A Mona é Pop',
-    price: 45.00,
-    image: monaFrente,
-    imageBack: monaBack,
-    category: 'Graphic',
-    aiHint: 'mona lisa remix',
-    description: '"Uma palavra na tua camiseta, o planeta na tua cama"',
-  },
-  {
-    id: 4,
-    name: 'Punk Rock',
-    price: 38.00,
-    image: punkRockFrente,
-    imageBack: punkRockBack,
-    category: 'Minimalist',
-    aiHint: 'punk rock skull',
-    description: 'Well, I\'m a punk rocker, yes, I am',
-  },
-  {
-    id: 5,
-    name: '2Cat',
-    price: 35.00,
-    image: twoCatFrente,
-    imageBack: twoCatBack,
-    category: 'Graphic',
-    aiHint: 'two cats illustration',
-    description: 'West side mother f**ers.',
-  },
-  {
-    id: 6,
-    name: 'Venus Classic',
-    price: 42.00,
-    image: venusFrente,
-    imageBack: venusBack,
-    category: 'Vintage',
-    aiHint: 'venus retro art',
-    description: 'Um pintura que traz a beleza atemporal de um coelhinho em uma obra que parece familiar a todos nós.',
-  },
+    {
+        id: 1,
+        name: "Catzilla",
+        price: 69.9,
+        image: tshirtImages.catzilla.front,
+        imageBack: tshirtImages.catzilla.back,
+        category: "Vintage",
+        type: "Oversized",
+        aiHint: "skull glitch",
+        description:
+            "Um gato preto gigante ataca uma cidade asiática, causando caos e destruição. E o que nos resta fazer é uma camisa sobre isso.",
+    },
+    {
+        id: 2,
+        name: "Catzila 2: O Retorno",
+        price: 40.0,
+        image: tshirtImages.catzillaDois.front,
+        imageBack: tshirtImages.catzillaDois.back,
+        category: "Vintage",
+        type: "Oversized",
+        aiHint: "astronaut dj",
+        description:
+            "Outro gato gigante ataca outra cidade asiática, também, causando caos e destruição. Também fizemos uma camisa sobre isso.",
+    },
+    {
+        id: 3,
+        name: "A Mona é Pop",
+        price: 45.0,
+        image: tshirtImages.mona.front,
+        imageBack: tshirtImages.mona.back,
+        category: "Graphic",
+        type: "Oversized",
+        aiHint: "mona lisa remix",
+        description: '"Uma palavra na tua camiseta, o planeta na tua cama"',
+    },
+    {
+        id: 4,
+        name: "Punk Rock",
+        price: 38.0,
+        image: tshirtImages.punkRock.front,
+        imageBack: tshirtImages.punkRock.back,
+        category: "Retro",
+        type: "Oversized",
+        aiHint: "punk rock skull",
+        description: "Well, I'm a punk rocker, yes, I am",
+    },
+    {
+        id: 5,
+        name: "2Cat",
+        price: 35.0,
+        image: tshirtImages.twoCat.front,
+        imageBack: tshirtImages.twoCat.back,
+        category: "Graphic",
+        type: "Oversized",
+        aiHint: "two cats illustration",
+        description: "West side mother f**ers.",
+    },
+    {
+        id: 6,
+        name: "Venus Classic",
+        price: 42.0,
+        image: tshirtImages.venus.front,
+        imageBack: tshirtImages.venus.back,
+        category: "Vintage",
+        type: "Oversized",
+        aiHint: "venus retro art",
+        description:
+            "Um pintura que traz a beleza atemporal de um coelhinho em uma obra que parece familiar a todos nós.",
+    },
+    {
+        id: 7,
+        name: "Akir..  Agostinho",
+        price: 59.0,
+        image: tshirtImages.akiraAgostinho.back,
+        imageBack: tshirtImages.akiraAgostinho.front,
+        category: "Retro",
+        type: "Regular",
+        aiHint: "akira retro art",
+        description: "Obra-prima clássica da teledramaturgia mundial.",
+    },
+    {
+        id: 8,
+        name: "Bobber",
+        price: 59.0,
+        image: tshirtImages.bobberMotocycle.front,
+        imageBack: tshirtImages.bobberMotocycle.back,
+        category: "Retro",
+        type: "Regular",
+        aiHint: "bobber retro art",
+        description:
+            "Ta tocando Scorpions, você sobe na sua moto bobberzona, bota o capacete de coquinho e vai no mercadinho comprar merenda. ",
+    },
+    {
+        id: 9,
+        name: "Capzilla: O inimigo agora é outro",
+        price: 59.0,
+        image: tshirtImages.capzilla.back,
+        imageBack: tshirtImages.capzilla.front,
+        category: "Vintage",
+        type: "Regular",
+        aiHint: "bobber retro art",
+        description:
+            "Parece ser cultural um bicho gigante atacar uma cidade no japão.",
+    },
+    {
+        id: 10,
+        name: "Brasilia",
+        price: 59.0,
+        image: tshirtImages.veryPorreta.back,
+        imageBack: tshirtImages.veryPorreta.front,
+        category: "Retro",
+        type: "Regular",
+        aiHint: "carrara retro art",
+        description: "Oxente ai, ai, ai! Mas comigo ela não quer se casar",
+    },
+    {
+        id: 11,
+        name: "The Snoopys",
+        price: 59.0,
+        image: tshirtImages.theSnoopys.front,
+        imageBack: tshirtImages.theSnoopys.back,
+        category: "Retro",
+        type: "Regular",
+        aiHint: "cats retro art",
+        description: "Um cachorro misterioso precisa trabalhar com um bandido e um caçador para encontrar um petisco escondido",
+    },
+    {
+        id: 12,
+        name: "Charmander",
+        price: 59.0,
+        image: tshirtImages.charmander.front,
+        imageBack: tshirtImages.charmander.back,
+        category: "Graphic",
+        type: "Oversized",
+        aiHint: "Pode ser um Pokémon",
+        description: "Um largato que cospe fogo? Por que não? ",
+    },
+    {
+        id: 13,
+        name: "Dogs in Black",
+        price: 59.0,
+        image: tshirtImages.dogsInBlack.back,
+        imageBack: tshirtImages.dogsInBlack.front,
+        category: "Graphic",
+        type: "Regular",
+        aiHint: "Pode ser um Pokémon",
+        description:
+            '"São cinco cachorros famosos de desenhos animados, cada um dentro de um retângulo colorido, todos de terno preto e óculos escuros no estilo Men in Black." - ChatGpt',
+    },
+    {
+        id: 14,
+        name: "Roberto Carlos - Brasil x França 1997",
+        price: 59.0,
+        image: tshirtImages.freeKick.back,
+        imageBack: tshirtImages.freeKick.front,
+        category: "Retro",
+        type: "Regular",
+        aiHint: "Pode ser um Pokémon",
+        description: " Todo mundo já viu esse video ",
+    },
+    {
+        id: 15,
+        name: "Guys in black",
+        price: 59.0,
+        image: tshirtImages.guysInBlack.back,
+        imageBack: tshirtImages.guysInBlack.front,
+        category: "Graphic",
+        type: "Regular",
+        aiHint: "Pode ser um Pokémon",
+        description:
+            "São cinco... você entende a referência não precisa repetir",
+    },
+    {
+        id: 16,
+        name: "Madruga",
+        price: 59.0,
+        image: tshirtImages.madruga.back,
+        imageBack: tshirtImages.madruga.front,
+        category: "Retro",
+        type: "Regular",
+        aiHint: "Pode ser um Pokémon",
+        description: "Realmente, ruim é ter que trabalhar",
+    },
+    {
+        id: 17,
+        name: "Muppets in black",
+        price: 59.0,
+        image: tshirtImages.muppetsInBlack.back,
+        imageBack: tshirtImages.muppetsInBlack.front,
+        category: "Graphic",
+        type: "Regular",
+        aiHint: "Pode ser um Pokémon",
+        description:
+            "Você já viu esse filme antes, essas referências são impossíveis de ignorar.",
+    },
+    {
+        id: 18,
+        name: "Mustang",
+        price: 59.0,
+        image: tshirtImages.mustang.front,
+        imageBack: tshirtImages.mustang.back,
+        category: "Retro",
+        type: "Regular",
+        aiHint: "Pode ser um mustang",
+        description: "John Wick mataria por um desses, e eu também.",
+    },
+    {
+        id: 19,
+        name: "Pulp Muppet",
+        price: 59.0,
+        image: tshirtImages.pulpMuppet.back,
+        imageBack: tshirtImages.pulpMuppet.front,
+        category: "Graphic",
+        type: "Regular",
+        aiHint: "Pode ser um mustang",
+        description:
+            "Kermit e Fozzie estreiam esse longa inédito, cheio de reviravoltas e referências jamais vistas em lugar nenhum.",
+    },
+    {
+        id: 20,
+        name: "Supra",
+        price: 59.0,
+        image: tshirtImages.supra.front,
+        imageBack: tshirtImages.supra.back,
+        category: "Retro",
+        type: "Regular",
+        aiHint: "Pode ser um mustang",
+        description:
+            "Não só de bichos gigantes vivem os japoneses, eles também sabem fazer uns carros legais.",
+    },
 ];
-
