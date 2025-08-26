@@ -17,7 +17,7 @@ export const tshirts: TShirt[] = [
     {
         id: 1,
         name: "Catzilla",
-        price: 69.9,
+        price: 98.9,
         image: tshirtImages.catzilla.front,
         imageBack: tshirtImages.catzilla.back,
         category: "Vintage",
@@ -26,22 +26,11 @@ export const tshirts: TShirt[] = [
         description:
             "Um gato preto gigante ataca uma cidade asiática, causando caos e destruição. E o que nos resta fazer é uma camisa sobre isso.",
     },
-    {
-        id: 2,
-        name: "Catzila 2: O Retorno",
-        price: 40.0,
-        image: tshirtImages.catzillaDois.front,
-        imageBack: tshirtImages.catzillaDois.back,
-        category: "Vintage",
-        type: "Oversized",
-        aiHint: "astronaut dj",
-        description:
-            "Outro gato gigante ataca outra cidade asiática, também, causando caos e destruição. Também fizemos uma camisa sobre isso.",
-    },
+    
     {
         id: 3,
         name: "A Mona é Pop",
-        price: 45.0,
+        price: 98.9,
         image: tshirtImages.mona.front,
         imageBack: tshirtImages.mona.back,
         category: "Graphic",
@@ -52,7 +41,7 @@ export const tshirts: TShirt[] = [
     {
         id: 4,
         name: "Punk Rock",
-        price: 38.0,
+        price: 98.9,
         image: tshirtImages.punkRock.front,
         imageBack: tshirtImages.punkRock.back,
         category: "Retro",
@@ -63,7 +52,7 @@ export const tshirts: TShirt[] = [
     {
         id: 5,
         name: "2Cat",
-        price: 35.0,
+        price: 98.9,
         image: tshirtImages.twoCat.front,
         imageBack: tshirtImages.twoCat.back,
         category: "Graphic",
@@ -74,7 +63,7 @@ export const tshirts: TShirt[] = [
     {
         id: 6,
         name: "Venus Classic",
-        price: 42.0,
+        price: 98.9,
         image: tshirtImages.venus.front,
         imageBack: tshirtImages.venus.back,
         category: "Vintage",
@@ -86,7 +75,7 @@ export const tshirts: TShirt[] = [
     {
         id: 7,
         name: "Akir..  Agostinho",
-        price: 59.0,
+        price: 98.9,
         image: tshirtImages.akiraAgostinho.back,
         imageBack: tshirtImages.akiraAgostinho.front,
         category: "Retro",
@@ -97,7 +86,7 @@ export const tshirts: TShirt[] = [
     {
         id: 8,
         name: "Bobber",
-        price: 59.0,
+        price: 98.9,
         image: tshirtImages.bobberMotocycle.front,
         imageBack: tshirtImages.bobberMotocycle.back,
         category: "Retro",
@@ -106,18 +95,7 @@ export const tshirts: TShirt[] = [
         description:
             "Ta tocando Scorpions, você sobe na sua moto bobberzona, bota o capacete de coquinho e vai no mercadinho comprar merenda. ",
     },
-    {
-        id: 9,
-        name: "Capzilla: O inimigo agora é outro",
-        price: 59.0,
-        image: tshirtImages.capzilla.back,
-        imageBack: tshirtImages.capzilla.front,
-        category: "Vintage",
-        type: "Regular",
-        aiHint: "bobber retro art",
-        description:
-            "Parece ser cultural um bicho gigante atacar uma cidade no japão.",
-    },
+
     {
         id: 10,
         name: "Brasilia",
@@ -130,49 +108,15 @@ export const tshirts: TShirt[] = [
         description: "Oxente ai, ai, ai! Mas comigo ela não quer se casar",
     },
     {
-        id: 11,
-        name: "The Snoopys",
-        price: 59.0,
-        image: tshirtImages.theSnoopys.front,
-        imageBack: tshirtImages.theSnoopys.back,
-        category: "Retro",
-        type: "Regular",
-        aiHint: "cats retro art",
-        description: "Um cachorro misterioso precisa trabalhar com um bandido e um caçador para encontrar um petisco escondido",
-    },
-    {
         id: 12,
         name: "Charmander",
-        price: 59.0,
+        price: 98.9,
         image: tshirtImages.charmander.front,
         imageBack: tshirtImages.charmander.back,
         category: "Graphic",
         type: "Oversized",
         aiHint: "Pode ser um Pokémon",
         description: "Um largato que cospe fogo? Por que não? ",
-    },
-    {
-        id: 13,
-        name: "Dogs in Black",
-        price: 59.0,
-        image: tshirtImages.dogsInBlack.back,
-        imageBack: tshirtImages.dogsInBlack.front,
-        category: "Graphic",
-        type: "Regular",
-        aiHint: "Pode ser um Pokémon",
-        description:
-            '"São cinco cachorros famosos de desenhos animados, cada um dentro de um retângulo colorido, todos de terno preto e óculos escuros no estilo Men in Black." - ChatGpt',
-    },
-    {
-        id: 14,
-        name: "Roberto Carlos - Brasil x França 1997",
-        price: 59.0,
-        image: tshirtImages.freeKick.back,
-        imageBack: tshirtImages.freeKick.front,
-        category: "Retro",
-        type: "Regular",
-        aiHint: "Pode ser um Pokémon",
-        description: " Todo mundo já viu esse video ",
     },
     {
         id: 15,
